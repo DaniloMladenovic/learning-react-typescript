@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import Checkbox from './components/Checkbox/Checkbox';
 import './App.css';
 
-function App() {
+const App = () => {
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(`Checkbox value is ${event.target.checked}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Checkbox
+        onChange={onChangeHandler}
+        label="Subscribe to our newsletter."
+        checked
+      />
+      <Checkbox label="Second box." />
+      <Checkbox label="Disabled box." disabled />
+      <Checkbox checked disabled />
     </div>
   );
-}
+};
 
 export default App;
